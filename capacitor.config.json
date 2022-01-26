@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "superTabs",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
