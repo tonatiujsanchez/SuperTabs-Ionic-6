@@ -1,0 +1,5 @@
+<ion-card>
+  <img [src]="article.banner_image" alt="">
+  <ion-card-title>{{ article.title }}</ion-card-title>
+  <p [innerHtml]="article.description | htmlDecode "></p>
+</ion-card>
