@@ -26,3 +26,9 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
+
+body.dark {
+    --legado-bg: #141414;
+    --legado-bg-header: #141414;
+    --legado-txt-primary: #ffdd00;
+  }

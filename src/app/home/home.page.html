@@ -1,14 +1,26 @@
-<ion-header [translucent]="true" class="ion-no-border" mode="ios">
-  <ion-toolbar color="none">
-    <ion-title>
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+
+      <ion-buttons slot="start">
+        <ion-button (click)="onClick()" fill="clear">
+          <ion-icon name="menu-sharp" color="light"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+
+    <ion-title class="ion-text-center">
       SuperTabs
     </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-toggle color="dark" [checked]="darkMode" (ionChange)="toggleTheme($event)" mode="md"></ion-toggle>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <super-tabs (tabChange)="onClick($event)">
   
-  <super-tabs-toolbar slot="top" scrollable="true">
+  <super-tabs-toolbar slot="top" scrollable="true" color="legado">
     <super-tab-button *ngFor="let category of categories">
       <ion-label>{{ category.label | uppercase }}</ion-label>    
     </super-tab-button>

@@ -12,7 +12,9 @@ interface Category{
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {3
+export class HomePage {
+
+  body = document.querySelector('body');
 
   categories: Category[] = [
     {
@@ -59,6 +61,8 @@ export class HomePage {3
   
   loading: boolean = false;
 
+  darkMode: boolean = false;
+
   constructor( private newsSvc: NewsService ) {}
   
   ngOnInit(): void {
@@ -99,6 +103,11 @@ export class HomePage {3
       }
     );
     
+  }
+
+  toggleTheme( evento ){
+    console.log( evento );
+    this.body.classList.toggle('dark');
   }
 
 
