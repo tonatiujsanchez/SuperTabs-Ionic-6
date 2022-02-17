@@ -24,7 +24,9 @@ import { SuperTabsModule } from '@ionic-super-tabs/angular';
     SuperTabsModule.forRoot(),
     HttpClientModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

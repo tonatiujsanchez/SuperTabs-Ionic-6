@@ -18,6 +18,8 @@ import { ComponentsModule } from '../components/components.module';
     SuperTabsModule,
     ComponentsModule
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage
+  ]
 })
 export class HomePageModule {}

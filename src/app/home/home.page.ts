@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NewsService } from '../services/news.service';
+
+import { SuperTabs } from '@ionic-super-tabs/angular';
 
 
 interface Category{
@@ -13,6 +15,8 @@ interface Category{
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  @ViewChild('superTabs', { read: SuperTabs }) st: SuperTabs;
 
   body = document.querySelector('body');
 
@@ -63,7 +67,9 @@ export class HomePage {
 
   darkMode: boolean = false;
 
-  constructor( private newsSvc: NewsService ) {}
+  constructor( 
+    private newsSvc: NewsService,
+    ) {}
   
   ngOnInit(): void {
 
@@ -105,9 +111,18 @@ export class HomePage {
     
   }
 
-  toggleTheme( evento ){
-    console.log( evento );
+  toggleTheme(){
+    this.darkMode = !this.darkMode;
     this.body.classList.toggle('dark');
+  }
+
+
+  goToMundo(){
+    const idxTab = this.categories.findIndex( tab => tab.label === 'mundo' );
+    console.log( idxTab );
+    
+    this.st.selectTab( idxTab );
+
   }
 
 
