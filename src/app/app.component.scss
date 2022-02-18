@@ -1,0 +1,13 @@
+
+ion-toolbar{
+    --background: var(--legado-bg-header);
+}
+
+ion-title{
+    --color: var(--legado-txt-primary);
+}
+
+ion-menu ion-item{
+    font-weight: bold;
+    font-size: 14px;
+}

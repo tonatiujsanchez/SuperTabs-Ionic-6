@@ -31,4 +31,10 @@ body.dark {
     --legado-bg: #141414;
     --legado-bg-header: #141414;
     --legado-txt-primary: #ffdd00;
-  }
+    --legado-btn-menu: #f4f5f8;
+}
+
+
+.menu-btn{
+  color: var(--legado-btn-menu);
+}

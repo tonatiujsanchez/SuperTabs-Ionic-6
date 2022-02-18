@@ -2,10 +2,10 @@
   <ion-toolbar>
 
       <ion-buttons slot="start">
-        <ion-button (click)="goToMundo()" fill="clear">
+        <!-- <ion-button (click)="goToMundo()" fill="clear">
           <ion-icon name="menu-sharp" [color]="darkMode ? 'light' : 'dark'"></ion-icon>
-          <ion-menu-button menu="first" color="primary"></ion-menu-button>
-        </ion-button>
+        </ion-button> -->
+        <ion-menu-button menu="first" class="menu-btn"></ion-menu-button>
       </ion-buttons>
 
 
@@ -20,7 +20,7 @@
   </ion-toolbar>
 </ion-header>
 
-<super-tabs #superTabs (tabChange)="onClick($event)">
+<super-tabs *ngIf="categories.length > 0" #superTabs (tabChange)="onClick($event)">
   
   <super-tabs-toolbar slot="top" scrollable="true" color="legado">
     <super-tab-button *ngFor="let category of categories">

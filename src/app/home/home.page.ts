@@ -2,12 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { NewsService } from '../services/news.service';
 
 import { SuperTabs } from '@ionic-super-tabs/angular';
+import { MenuOption } from '../interfaces/menu.interface';
+import { MenuService } from '../services/menu.service';
 
 
-interface Category{
-  value: string,
-  label: string
-}
 
 @Component({
   selector: 'app-home',
@@ -20,46 +18,11 @@ export class HomePage {
 
   body = document.querySelector('body');
 
-  categories: Category[] = [
-    {
-      value: 'destacados',
-      label: 'inicio'
-    },
-    {
-      value: 'politica',
-      label: 'tlapa'
-    },
-    {
-      value: 'columna',
-      label: 'editorial'
-    },
-    {
-      value: 'montana',
-      label: 'montaña'
-    },
-    {
-      value: 'guerrero',
-      label: 'guerrero'
-    },
-    {
-      value: 'mexico',
-      label: 'méxico'
-    },
-    {
-      value: 'internacional',
-      label: 'mundo'
-    },
-    {
-      value: 'politica',
-      label: 'política'
-    },
-    {
-      value: 'interesante',
-      label: 'cultura'
-    },
+  categories: MenuOption[] = [
+
   ];
 
-  categoryActive = this.categories[0].value;
+  categoryActive = null;
 
   articles: any[] = [];
   
@@ -69,12 +32,33 @@ export class HomePage {
 
   constructor( 
     private newsSvc: NewsService,
+    private menuSvc: MenuService
     ) {}
   
   ngOnInit(): void {
 
+    this.menuSvc.getMenuOptions().subscribe(
+      ( options ) => {
+        this.categories = options
+        this.categoryActive = this.categories[0].value;
+        this.getNews();
+
+      }
+    );
+
+
+
     console.log( this.categoryActive );
-    this.getNews();    
+    // this.getNews();
+    
+    this.menuSvc.menuOption.subscribe(
+      resp => {
+        console.log( resp );
+        
+        this.navigateToCategory( resp );
+      }
+    );
+    
   }
 
   onClick( evento ){
@@ -122,8 +106,12 @@ export class HomePage {
     console.log( idxTab );
     
     this.st.selectTab( idxTab );
-
   }
+
+  navigateToCategory( idCategory: number ){
+    this.st.selectTab( idCategory );
+  }
+
 
 
 }

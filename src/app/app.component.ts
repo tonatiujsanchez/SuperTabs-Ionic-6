@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { MenuService } from './services/menu.service';
+import { MenuOption } from './interfaces/menu.interface';
 
 
 
@@ -10,13 +12,31 @@ import { MenuController } from '@ionic/angular';
 })
 export class AppComponent {
 
+
+  options: MenuOption[] = [];
+
   constructor(
-    private menu: MenuController
+    private menu: MenuController,
+    private menuSvc: MenuService
   ) {}
 
+  ngOnInit(): void {
+    
+    this.menuSvc.getMenuOptions().subscribe(
+      ( options ) => this.options = options
+    );
 
+
+  }
   menuClosed(){
     this.menu.close('first');
   }
+
+  navigateToCategoria( idxCategory ){
+    this.menuClosed();
+    this.menuSvc.navigateToCategory( idxCategory );
+    
+  }
+
 
 }

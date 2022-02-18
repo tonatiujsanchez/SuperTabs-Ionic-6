@@ -2,13 +2,13 @@
 
   <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
-      <ion-toolbar color="primary">
+      <ion-toolbar>
 
-        <ion-title>Start Menu</ion-title>
+        <ion-title>Menu</ion-title>
 
         <ion-buttons slot="end">
           <ion-button (click)="menuClosed()">
-            <ion-icon slot="icon-only" name="close"></ion-icon>
+            <ion-icon slot="icon-only" name="close" class="menu-btn"></ion-icon>
           </ion-button>
         </ion-buttons>
 
@@ -17,11 +17,11 @@
     <ion-content>
 
       <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
+        <ion-item 
+          *ngFor="let option of options; let idx = index"
+          (click)="navigateToCategoria( idx )">
+          {{ option.label | uppercase }}
+        </ion-item>
       </ion-list>
       
     </ion-content>

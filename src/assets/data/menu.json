@@ -1,0 +1,38 @@
+[
+    {
+      "value": "destacados",
+      "label": "inicio"
+    },
+    {
+      "value": "politica",
+      "label": "tlapa"
+    },
+    {
+      "value": "columna",
+      "label": "editorial"
+    },
+    {
+      "value": "montana",
+      "label": "montaña"
+    },
+    {
+      "value": "guerrero",
+      "label": "guerrero"
+    },
+    {
+      "value": "mexico",
+      "label": "méxico"
+    },
+    {
+      "value": "internacional",
+      "label": "mundo"
+    },
+    {
+      "value": "politica",
+      "label": "política"
+    },
+    {
+      "value": "interesante",
+      "label": "cultura"
+    }
+  ]
